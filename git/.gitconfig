@@ -1,0 +1,9 @@
+[alias]
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+[user]
+    email = 87527837+wedkarz02@users.noreply.github.com
+    name = Paweł Rybak
+[credential]
+    helper = store
+[init]
+    defaultBranch = main
