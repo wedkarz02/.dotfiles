@@ -19,11 +19,11 @@ work in progress (somewhat)
     - [Install powerlevel10k](#install-powerlevel10k)
 - [Install and setup tmux](#install-and-setup-tmux)
     - [Install tmux](#install-tmux)
-    - [Install tmp](#install-tpm)
-- [Remap CapsLock to ESC/CTRL](#remap-capslock-to-esc\/ctrl)
+    - [Install tpm](#install-tpm)
+- [Remap CapsLock to ESC/CTRL](#remap-capslock-to-escctrl)
 - [Install and setup Neovim](#install-and-setup-neovim)
     - [Install neovim](#install-neovim)
-    - [Install kickstart.nvim](#install-kickstart.nvim)
+    - [Install kickstart.nvim](#install-kickstartnvim)
 
 ## Download the repository
 
