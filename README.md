@@ -7,7 +7,9 @@
 
 ## Overview
 
-work in progress (somewhat)
+Hello, future me! This README is supposed to guide you through a fresh environment setup when you inevitably forget how to do half of the stuff here. Note that this guide doesn't include things like installing additional software, like *node* or *cargo*. That's for you to figure out once you're done here (future me might want to add some sort of *"What to install next"* section to the bottom of this README).
+
+For anyone else who isn't future me - also welcome! Feel free to roam around and grab anything that seems interesting to you.
 
 ## Table of Contents
 
@@ -24,6 +26,8 @@ work in progress (somewhat)
 - [Install and setup Neovim](#install-and-setup-neovim)
     - [Install neovim](#install-neovim)
     - [Install kickstart.nvim](#install-kickstartnvim)
+- [Notice](#notice)
+- [License](#license)
 
 ## Download the repository
 
@@ -135,6 +139,13 @@ $ git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$
 ```
 
 and replace the `~/.config/nvim/init.lua` file with the one from the dotfiles.
+
+## Notice
+
+Thanks to:
+- [@novaspirit](https://github.com/novaspirit) - for an easy-to-follow zsh setup guide.
+- [@typecraft](https://github.com/typecraft-dev) - for the base of my tmux setup.
+- [@tjdevries](https://github.com/tjdevries) - for the great kickstart.nvim.
 
 ## License
 
