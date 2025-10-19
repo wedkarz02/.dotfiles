@@ -26,6 +26,7 @@ For anyone else who isn't future me - also welcome! Feel free to roam around and
 - [Install and setup Neovim](#install-and-setup-neovim)
     - [Install neovim](#install-neovim)
     - [Install kickstart.nvim](#install-kickstartnvim)
+- [GNU Stow](#gnu-stow)
 - [Notice](#notice)
 - [License](#license)
 
@@ -145,7 +146,8 @@ and remove the `.git/` directory since it's no longer needed.
 apt install stow
 ```
 
-Make sure to backup old configs with `mv .original .original.bak`. That way they won't get replaced with symlinks to files in the `.dotfiles/` directory:
+> [!Important]
+> Make sure to backup old configs with `mv .original .original.bak`. That way they won't get replaced with symlinks to files in the `.dotfiles/` directory:
 
 ```
 .dotfiles/
