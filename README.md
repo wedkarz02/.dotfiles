@@ -37,9 +37,7 @@ git clone https://github.com/wedkarz02/.dotfiles.git
 ```
 
 > [!NOTE]
-> Some of the steps ahead might overwrite their respected config files (eg. zsh setup overwriting *.zshrc*), so don't replace them yet. I'll leave it for your intuition to decide when to replace each file.
-> 
-> At the time of writing this, I prefer to replace files manually. Yes - it is kind of annoying but I find it to be way more reliable than using some ad-hoc bash script (although *future me* might look into using GNU Stow for this).
+> This doc is somewhat messy and assumes a fresh system setup. Most steps are not really required but I find it least confusing to follow them, move the config files to .bak, and just let GNU Stow do it's thing in the end. It's not ideal but it's good enough and gets the job done.
 
 ## Install NerdFont
 
@@ -94,25 +92,23 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 
 At this point make sure that the `ZSH_THEME` is set to `powerlevel10k/powerlevel10k` in *.zshrc*.
 
-Restart the terminal session and go through the powerlevel10k setup prompt.
+Restart the terminal session and go through the powerlevel10k setup prompt (I didn't include powerlevel10k config in this repository but it's very quick to setup).
 
 ## Install and setup tmux
 
 ### Install tmux
 
-Install tmux:
 ```sh
 apt install tmux
 ```
 
 ### Install TPM
 
-Install Tmux Plugin Manager:
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-After copying the `.dotfiles/tmux/.tmux.conf` file to your home directory, don't forget to fetch and install TPM plugins with `prefix I`.
+After linking with GNU Stow, don't forget to fetch and install TPM plugins with `prefix I`.
 
 ## Remap CapsLock to ESC/CTRL
 
@@ -139,7 +135,49 @@ Install *kickstart.nvim*:
 git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
-and replace the `~/.config/nvim/init.lua` file with the one from the dotfiles.
+and remove the `.git/` directory since it's no longer needed.
+
+## GNU Stow
+
+*GNU Stow* makes managing symlinks very easy. First, install `stow`:
+
+```sh
+apt install stow
+```
+
+Make sure to backup old configs with `mv .original .original.bak`. That way they won't get replaced with symlinks to files in the `.dotfiles/` directory:
+
+```
+.dotfiles/
+├── git/
+│   └── .gitconfig
+├── nvim/
+│   └── .config/
+│       └── nvim/
+│           └── init.lua
+├── tmux/
+│   └── .tmux.conf
+└── zsh/
+    ├── .zsh_aliases
+    └── .zshrc
+```
+
+Now use `stow` to make symlinks for a specific package you want to install, eg.:
+```sh
+stow zsh
+```
+
+Or install all of them:
+```sh
+stow */
+```
+
+If, for whatever reason, you need to 'unstow' do:
+```sh
+stow -D */
+```
+
+which will remove all symlinks. After that you can re-enable your backed up configs (you did back them up right? RIGHT?).
 
 ## Notice
 
