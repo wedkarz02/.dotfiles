@@ -206,7 +206,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- Edit the parent directory of the current file as a floating buffer with Oil.nvim.
-vim.keymap.set('n', '-', '<CMD>lua require("oil").open_float(".")<CR>', { desc = 'Open parent directory in a floating buffer' })
+vim.keymap.set(
+  'n',
+  '-',
+  '<CMD>lua require("oil").open_float(".", { preview = { vertical = true }})<CR>',
+  { desc = 'Open parent directory in a floating buffer' }
+)
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -1050,15 +1055,9 @@ require('lazy').setup({
         max_width = 0.8,
         max_height = 0.8,
         border = 'rounded',
-        win_options = {
-          winblend = 0,
-        },
       },
       confirmation = {
         border = 'rounded',
-        win_options = {
-          winblend = 0,
-        },
       },
     },
     -- Optional dependencies
