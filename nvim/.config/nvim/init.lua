@@ -428,6 +428,8 @@ require('lazy').setup({
             'node_modules/',
             '%.cache/',
             '%.npm/',
+            '%.venv/',
+            'venv/',
           },
         },
 
