@@ -11,7 +11,7 @@ Hello, future me! This README is supposed to guide you through a fresh environme
 
 For anyone else who isn't future me - also welcome! Feel free to roam around and grab anything that seems interesting to you.
 
-[Screenshot of my CLI setup](https://imgur.com/4h8cpch)
+[Screenshot of my CLI setup](https://i.imgur.com/4h8cpch.png)
 
 ## Table of Contents
 
