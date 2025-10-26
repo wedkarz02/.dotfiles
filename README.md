@@ -11,6 +11,8 @@ Hello, future me! This README is supposed to guide you through a fresh environme
 
 For anyone else who isn't future me - also welcome! Feel free to roam around and grab anything that seems interesting to you.
 
+[Screenshot of my CLI setup](https://imgur.com/4h8cpch)
+
 ## Table of Contents
 
 - [Download the repository](#download-the-repository)
@@ -151,15 +153,26 @@ apt install stow
 
 ```
 .dotfiles/
-├── git/
-│   └── .gitconfig
-├── nvim/
-│   └── .config/
-│       └── nvim/
-│           └── init.lua
-├── tmux/
-│   └── .tmux.conf
-└── zsh/
+├── git
+│   └── .gitconfig
+├── kitty
+│   └── .config
+│       └── kitty
+│           ├── kitty.conf
+│           ├── sessions
+│           │   └── max.conf
+│           └── themes
+│               ├── catppuccin-mocha.conf
+│               └── tokyo-night-kitty.conf
+├── LICENSE
+├── nvim
+│   └── .config
+│       └── nvim
+│           └── init.lua
+├── README.md
+├── tmux
+│   └── .tmux.conf
+└── zsh
     ├── .zsh_aliases
     └── .zshrc
 ```
