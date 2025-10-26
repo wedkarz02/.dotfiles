@@ -52,12 +52,12 @@ Download and install FiraMono Nerd Font from [here](https://www.nerdfonts.com/) 
 
 To install zsh, first update the system packages:
 ```sh
-sudo apt update && apt upgrade -y
+sudo dnf update
 ```
 
 and install zsh:
 ```sh
-apt install zsh
+sudo dnf install zsh
 ```
 
 Then set zsh as the default shell with ```chsh```:
@@ -102,7 +102,7 @@ Restart the terminal session and go through the powerlevel10k setup prompt (I di
 ### Install tmux
 
 ```sh
-apt install tmux
+sudo dnf install tmux
 ```
 
 ### Install TPM
@@ -145,7 +145,7 @@ and remove the `.git/` directory since it's no longer needed.
 *GNU Stow* makes managing symlinks very easy. First, install `stow`:
 
 ```sh
-apt install stow
+sudo dnf install stow
 ```
 
 > [!Important]
