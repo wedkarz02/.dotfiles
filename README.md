@@ -177,7 +177,7 @@ which will remove all symlinks. After that you can re-enable your backed up conf
 ## Notice
 
 Thanks to:
-- [@tjdevries](https://github.com/tjdevries) - for the great kickstart.nvim.
+- [kickstart.nvim contributors](https://github.com/nvim-lua/kickstart.nvim/graphs/contributors) - for the great kickstart.nvim config.
 - [@dam9000](https://github.com/dam9000) - for an inspiration on modularizing kickstart.
 - [@novaspirit](https://github.com/novaspirit) - for an easy-to-follow zsh setup guide.
 - [@typecraft](https://github.com/typecraft-dev) - for the base of my tmux setup.
