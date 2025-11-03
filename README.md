@@ -25,9 +25,7 @@ For anyone else who isn't future me - also welcome! Feel free to roam around and
     - [Install tmux](#install-tmux)
     - [Install tpm](#install-tpm)
 - [Remap CapsLock to ESC/CTRL](#remap-capslock-to-escctrl)
-- [Install and setup Neovim](#install-and-setup-neovim)
-    - [Install neovim](#install-neovim)
-    - [Install kickstart.nvim](#install-kickstartnvim)
+- [Install Neovim](#install-neovim)
 - [GNU Stow](#gnu-stow)
 - [Notice](#notice)
 - [License](#license)
@@ -117,9 +115,7 @@ After linking with GNU Stow, don't forget to fetch and install TPM plugins with 
 
 Install and setup [keyd](https://github.com/rvaiya/keyd) daemon. *Quickstart* section has an example of this exact behaviour.
 
-## Install and setup Neovim
-
-### Install neovim
+## Install Neovim
 
 Download neovim tarball (https://github.com/neovim/neovim/releases/) into `~/.local/bin/` and extract it:
 ```sh
@@ -130,15 +126,6 @@ Make a symlink to the executable:
 ```sh
 ln -s nvim-linux-x86_64/bin/nvim nvim
 ```
-
-### Install kickstart.nvim
-
-Install *kickstart.nvim*:
-```sh
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-```
-
-and remove the `.git/` directory since it's no longer needed.
 
 ## GNU Stow
 
@@ -153,26 +140,19 @@ sudo dnf install stow
 
 ```
 .dotfiles/
-├── git
+├── git/
 │   └── .gitconfig
-├── kitty
-│   └── .config
-│       └── kitty
-│           ├── kitty.conf
-│           ├── sessions
-│           │   └── max.conf
-│           └── themes
-│               ├── catppuccin-mocha.conf
-│               └── tokyo-night-kitty.conf
+├── kitty/
+│   └── .config/
+│       └── kitty/
 ├── LICENSE
-├── nvim
+├── nvim/
 │   └── .config
-│       └── nvim
-│           └── init.lua
+│       └── nvim/
 ├── README.md
-├── tmux
+├── tmux/
 │   └── .tmux.conf
-└── zsh
+└── zsh/
     ├── .zsh_aliases
     └── .zshrc
 ```
@@ -197,9 +177,10 @@ which will remove all symlinks. After that you can re-enable your backed up conf
 ## Notice
 
 Thanks to:
+- [@tjdevries](https://github.com/tjdevries) - for the great kickstart.nvim.
+- [@dam9000](https://github.com/dam9000) - for an inspiration on modularizing kickstart.
 - [@novaspirit](https://github.com/novaspirit) - for an easy-to-follow zsh setup guide.
 - [@typecraft](https://github.com/typecraft-dev) - for the base of my tmux setup.
-- [@tjdevries](https://github.com/tjdevries) - for the great kickstart.nvim.
 
 ## License
 
