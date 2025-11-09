@@ -62,6 +62,7 @@ require('lazy').setup({
   require 'plugins.nvim-ts-autotag',
   require 'plugins.nvim-autopairs',
   require 'plugins.oil',
+  require 'plugins.vim-tmux-navigator',
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
