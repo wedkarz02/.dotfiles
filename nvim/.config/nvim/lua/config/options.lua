@@ -15,8 +15,8 @@ vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
--- Turn off cursor-styling (always display cursor as block)
-vim.o.guicursor = ''
+-- Display the cursor as block
+vim.o.guicursor = 'n-v-c:block'
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
