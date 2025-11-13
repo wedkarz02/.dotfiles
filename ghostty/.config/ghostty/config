@@ -21,6 +21,8 @@ theme = TokyoNight
 maximize = true
 window-decoration = false
 
+font-feature = -calt
+
 background-opacity = 0.9
 background-blur = true
 
