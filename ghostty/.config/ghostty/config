@@ -19,7 +19,7 @@
 theme = TokyoNight
 
 maximize = true
-window-decoration = false
+window-decoration = true
 
 font-feature = -calt
 
