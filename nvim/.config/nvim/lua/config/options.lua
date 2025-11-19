@@ -60,6 +60,13 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- Set nicer defaults for indenting rules.
+-- For custom rules per filetype - set those in `~/.config/nvim/after/ftplugin/filetype.lua`
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.softtabstop = 2
+
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
