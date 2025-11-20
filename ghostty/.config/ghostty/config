@@ -23,6 +23,6 @@ window-decoration = true
 
 font-feature = -calt
 
-background-opacity = 0.9
+background-opacity = 0.7
 background-blur = true
 
