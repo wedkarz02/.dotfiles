@@ -42,6 +42,9 @@ git clone https://github.com/wedkarz02/.dotfiles.git
 
 ## Install NerdFont
 
+> [!NOTE]
+> This step is not required for ghostty terminal emulator as ghostty comes bundled with Nerd Fonts.
+
 Download and install FiraMono Nerd Font from [here](https://www.nerdfonts.com/) and set your terminal to use it as a default font.
 
 ## Install and setup zsh
@@ -113,7 +116,7 @@ After linking with GNU Stow, don't forget to fetch and install TPM plugins with 
 
 ## Remap CapsLock to ESC/CTRL
 
-Install and setup [keyd](https://github.com/rvaiya/keyd) daemon. *Quickstart* section has an example of this exact behaviour.
+Install and setup [keyd](https://github.com/rvaiya/keyd) daemon. *Quickstart* section has an example of this exact behaviour. For more convenient usage set a system-wide keyboard shortcut to the *toggle_keyd.sh* script.
 
 ## Install Neovim
 
@@ -140,16 +143,21 @@ sudo dnf install stow
 
 ```
 .dotfiles/
+├── bin/
+│   └── .local/
+│       └── bin/
+│           └── fn/
+├── ghostty/
+│   └── .config/
+│       └── ghostty/
 ├── git/
 │   └── .gitconfig
 ├── kitty/
 │   └── .config/
 │       └── kitty/
-├── LICENSE
 ├── nvim/
-│   └── .config
+│   └── .config/
 │       └── nvim/
-├── README.md
 ├── tmux/
 │   └── .tmux.conf
 └── zsh/
@@ -173,6 +181,13 @@ stow -D */
 ```
 
 which will remove all symlinks. After that you can re-enable your backed up configs (you did back them up right? RIGHT?).
+
+> [!NOTE]
+> At the time of writing this I'm using ghostty terminal emulator but it's still somewhat new so I'm going to leave kitty config for now. If you don't need it, unstow it with:
+
+```sh
+stow -D kitty/
+```
 
 ## Notice
 

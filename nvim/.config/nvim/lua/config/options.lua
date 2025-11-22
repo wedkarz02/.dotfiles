@@ -65,7 +65,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.softtabstop = 2
+vim.opt.softtabstop = 2
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
