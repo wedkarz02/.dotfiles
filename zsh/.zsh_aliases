@@ -1,2 +1,2 @@
-alias loc='cloc . --exclude-dir=.git,node_modules,target'
+alias loc='cloc . --exclude-dir=.git,node_modules,target,.venv'
 
