@@ -7,6 +7,9 @@ return {
       -- metals_config.on_attach = function(client, bufnr)
       --   -- your on_attach function
       -- end
+
+      metals_config.init_options.statusBarProvider = 'off'
+
       return metals_config
     end,
     config = function(self, metals_config)
