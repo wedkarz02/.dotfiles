@@ -57,7 +57,6 @@ require('lazy').setup({
   require 'plugins.tokyonight',
   require 'plugins.todo-comments',
   require 'plugins.mini',
-  require 'plugins.markview',
   require 'plugins.treesitter',
   require 'plugins.nvim-ts-autotag',
   require 'plugins.nvim-autopairs',
