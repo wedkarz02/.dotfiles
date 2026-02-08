@@ -120,3 +120,17 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Setup fzf keybindings and fuzzy completion
+source <(fzf --zsh)
+
+# Setup fzf keybindings
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Setup fzf-git
+source ~/.local/bin/fzf-git.sh
+
+# Set tokyo night as the default bat theme
+export BAT_THEME=tokyonight_night
+

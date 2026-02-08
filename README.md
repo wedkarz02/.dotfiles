@@ -15,6 +15,7 @@ For anyone else who isn't future me - also welcome! Feel free to roam around and
 
 ## Table of Contents
 
+- [Requirements](#requirements)
 - [Download the repository](#download-the-repository)
 - [Install NerdFont](#install-nerdfont)
 - [Install and setup zsh](#install-and-setup-zsh)
@@ -26,9 +27,34 @@ For anyone else who isn't future me - also welcome! Feel free to roam around and
     - [Install tpm](#install-tpm)
 - [Remap CapsLock to ESC/CTRL](#remap-capslock-to-escctrl)
 - [Install Neovim](#install-neovim)
+- [Setting up `bat` theme](#setting-up-bat-theme)
 - [GNU Stow](#gnu-stow)
 - [Notice](#notice)
 - [License](#license)
+
+## Requirements
+
+Software to install before proceeding (*install-all* script WIP):
+
+| Package | Install Command |
+|---------|-----------------|
+| ghostty | `sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty` |
+| zsh | `sudo dnf install zsh` |
+| stow | `sudo dnf install stow` |
+| tmux | `sudo dnf install tmux` |
+| nvim | `sudo dnf install neovim` |
+| keyd | `sudo dnf copr enable alternateved/keyd && sudo dnf install keyd` |
+| fd | `sudo dnf install fd-find` |
+| rg | `sudo dnf install ripgrep` |
+| fzf | `sudo dnf install fzf` |
+| bat | `sudo dnf install bat` |
+| delta | `sudo dnf install git-delta` |
+| btop | `sudo dnf install btop` |
+| cloc | `sudo dnf install cloc` |
+
+> [!IMPORTANT]
+> Some of these technically are not necessary but they **ARE** referenced in different places in the configs.
+> Sourcing `.zshrc` might error out if there are not installed.
 
 ## Download the repository
 
@@ -128,6 +154,23 @@ tar xzvf nvim-linux-x86_64.tar.gz && rm nvim-linux-x86_64.tar.gz
 Make a symlink to the executable:
 ```sh
 ln -s nvim-linux-x86_64/bin/nvim nvim
+```
+
+## Setting up `bat` theme
+
+Create a `bat` config directory:
+```sh
+mkdir -p "$(bat --config-dir)/themes"
+```
+
+Download the TokyoNight theme:
+```sh
+cd "$(bat --config-dir)/themes" && wget https://raw.githubusercontent.com/folke/tokyonight.nvim/refs/heads/main/extras/sublime/tokyonight_night.tmTheme
+```
+
+Rebuild `bat` cache:
+```sh
+bat cache --build
 ```
 
 ## GNU Stow

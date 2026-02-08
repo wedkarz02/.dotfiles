@@ -51,7 +51,6 @@ require('lazy').setup({
   require 'plugins.which-key',
   require 'plugins.telescope',
   require 'plugins.lspconfig',
-  require 'plugins.nvim-metals',
   require 'plugins.conform',
   require 'plugins.blink',
   require 'plugins.tokyonight',
