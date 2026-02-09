@@ -20,6 +20,7 @@ theme = TokyoNight
 
 maximize = true
 window-decoration = true
+keybind = ctrl+enter=ignore
 
 font-feature = -calt
 
