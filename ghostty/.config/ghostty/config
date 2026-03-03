@@ -16,10 +16,10 @@
 # reloaded while running; some only apply to new windows and others may require
 # a full restart to take effect.
 
-theme = TokyoNight
+theme = Catppuccin Mocha
 
 maximize = true
-window-decoration = true
+window-decoration = false
 keybind = ctrl+enter=ignore
 
 font-feature = -calt
