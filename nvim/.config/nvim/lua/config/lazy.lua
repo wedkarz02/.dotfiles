@@ -53,7 +53,6 @@ require('lazy').setup({
   require 'plugins.lspconfig',
   require 'plugins.conform',
   require 'plugins.blink',
-  -- require 'plugins.tokyonight',
   require 'plugins.catppuccin',
   require 'plugins.todo-comments',
   require 'plugins.mini',
