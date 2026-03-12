@@ -101,13 +101,14 @@ curl -sS https://starship.rs/install.sh | sh
 
 ## Setup tmux
 
+> [!NOTE]
+> The `tmux` package doesn't include plugins so make sure to install them with `Prefix + I` and reload tmux with `Prefix + r` after installing TPM.
+
 ### Install TPM
 
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
-
-After linking with GNU Stow, don't forget to fetch and install TPM plugins with `prefix I`.
 
 ### Theme
 
