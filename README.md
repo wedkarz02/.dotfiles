@@ -113,7 +113,6 @@ After linking with GNU Stow, don't forget to fetch and install TPM plugins with 
 
 Download Catppuccin theme for tmux:
 ```sh
-mkdir -p ~/.config/tmux/plugins/catppuccin
 git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 ```
 
@@ -213,7 +212,8 @@ stow -D */
 │   └── .config
 │       └── starship.toml
 ├── tmux
-│   └── .tmux.conf
+│   └── .config
+│       └── tmux
 └── zsh
     ├── .zsh_aliases
     └── .zshrc
