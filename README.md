@@ -64,7 +64,7 @@ Software to install before proceeding:
 
 Clone this repository to your desired location (I usually go with the home directory):
 ```sh
-git clone https://github.com/wedkarz02/.dotfiles.git
+git clone https://codeberg.org/wedkarz02/.dotfiles.git
 ```
 
 ## Setup zsh
@@ -229,5 +229,5 @@ Thanks to:
 
 ## License
 
-This repository is licensed under the MIT License. See the [LICENSE](https://github.com/wedkarz02/.dotfiles/blob/main/LICENSE) file for more info.
+This repository is licensed under the MIT License. See the [LICENSE](https://codeberg.org/wedkarz02/.dotfiles/src/branch/main/LICENSE) file for more info.
 
