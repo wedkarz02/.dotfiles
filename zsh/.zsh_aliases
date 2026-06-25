@@ -1,6 +1,8 @@
 # Neovim profiles
 #   nvim-lazy - Pre-nvim-0.12 with lazy.nvim as plugin manager.
+#   nvim      - Temporary default to nvim-lazy profile until the new config is done.
 alias nvim-lazy='NVIM_APPNAME=nvim-lazy nvim'
+alias nvim='nvim-lazy'
 
 alias loc='cloc . --exclude-dir=.git,node_modules,target,.venv'
 
