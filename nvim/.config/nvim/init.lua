@@ -8,8 +8,11 @@ require "keymaps"
 require "commands"
 require "autocmds"
 
+require "plugins.mini"
+require "plugins.telescope"
 require "plugins.catppuccin"
 require "plugins.oil"
-require "plugins.mini"
 require "plugins.gitsigns"
+require "plugins.which-key"
+require "plugins.nvim-tmux-navigation"
 

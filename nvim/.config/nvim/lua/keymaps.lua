@@ -1,5 +1,8 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Turn off the search highlight" })
 
+vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank to the plus register (system clipboard)" })
+vim.keymap.set({ "n", "v" }, "<leader>p", "\"+p", { desc = "Paste from the plus register (system clipboard)" })
+
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics [Q]uickfix list" })
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -11,6 +14,8 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
+
+vim.keymap.set("n", "J", "mzJ'z", { desc = "Keep the cursor in place after line join" })
 
 vim.keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })

@@ -1,7 +1,10 @@
-vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
-vim.pack.add({ "https://github.com/benomahony/oil-git.nvim" })
+vim.pack.add({
+  "https://github.com/stevearc/oil.nvim",
+  "https://github.com/benomahony/oil-git.nvim",
+})
 
-require("oil").setup({
+local Oil = require("oil")
+Oil.setup({
   view_options = {
     show_hidden = true,
   },
