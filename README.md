@@ -53,7 +53,7 @@ Software to install before proceeding:
 | bat | `sudo dnf install bat` |
 | delta | `sudo dnf install git-delta` |
 | btop | `sudo dnf install btop` |
-| cloc | `sudo dnf install cloc` |
+| tokei | `sudo dnf install tokei` |
 | tldr | `cargo install tlrc --locked` |
 
 > [!IMPORTANT]
@@ -209,6 +209,9 @@ stow -D */
 ├── nvim
 │   └── .config
 │       └── nvim
+├── nvim-lazy
+│   └── .config
+│       └── nvim-lazy
 ├── starship
 │   └── .config
 │       └── starship.toml
@@ -226,6 +229,7 @@ Thanks to:
 - [kickstart.nvim contributors](https://github.com/nvim-lua/kickstart.nvim/graphs/contributors) - for the great kickstart.nvim config.
 - [@dam9000](https://github.com/dam9000) - for an inspiration on modularizing kickstart.
 - [@novaspirit](https://github.com/novaspirit) - for an easy-to-follow zsh setup guide.
+- [@Sin-cy](https://github.com/Sin-cy) - for an inspiration on Neovim0.12+ config.
 
 ## License
 

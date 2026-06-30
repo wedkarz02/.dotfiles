@@ -9,7 +9,7 @@ local Telescope = require("telescope")
 Telescope.setup({
   defaults = {
     file_ignore_patterns = {
-      "%.git",
+      "%.git/",
       "target/",
       "node_modules/",
       "%.cache/",

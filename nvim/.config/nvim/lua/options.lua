@@ -10,9 +10,6 @@ vim.opt.termguicolors = true
 
 vim.opt.showmode = false
 
--- Try Shift+Y and Shift+P for system clipboard. Maybe it'll work.
--- vim.opt.clipboard:append("unnamedplus")
-
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
@@ -23,6 +20,7 @@ vim.opt.breakindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.inccommand = "split"
+vim.opt.completeopt = "menuone,noselect,fuzzy,nosort"
 
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300

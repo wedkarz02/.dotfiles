@@ -1,4 +1,7 @@
-vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
+vim.pack.add({
+  "https://github.com/nvim-mini/mini.nvim",
+  "https://github.com/rafamadriz/friendly-snippets",
+})
 
 local MiniNotify = require("mini.notify")
 MiniNotify.setup({
@@ -41,4 +44,19 @@ MiniHipatterns.setup({
     hex_color = MiniHipatterns.gen_highlighter.hex_color({ style = "#" }),
   }
 })
+
+local MiniCompletion = require("mini.completion")
+MiniCompletion.setup({
+  lsp_completion = {
+    auto_setup = true,
+  }
+})
+
+local MiniSnippets = require("mini.snippets")
+MiniSnippets.setup({
+  snippets = {
+    MiniSnippets.gen_loader.from_lang() -- snippets from rafamadriz/friendly-snippets collection
+  }
+})
+MiniSnippets.start_lsp_server({ match = false })
 
