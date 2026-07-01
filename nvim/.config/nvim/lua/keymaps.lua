@@ -1,7 +1,7 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Turn off the search highlight" })
 
-vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank to the plus register (system clipboard)" })
-vim.keymap.set({ "n", "v" }, "<leader>p", "\"+p", { desc = "Paste from the plus register (system clipboard)" })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to the plus register (system clipboard)" })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from the plus register (system clipboard)" })
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics [Q]uickfix list" })
 
@@ -29,4 +29,3 @@ vim.keymap.set("n", "<leader>u", function()
 end, { desc = "Toggle undotree" })
 
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory with oil.nvim" })
-

@@ -1,11 +1,15 @@
 -- Temporarily install plugins (not persistant)
-vim.api.nvim_create_user_command("PackAdd", function(opts)
-  vim.pack.add(opts.fargs)
-end, { nargs = "+", desc = "Add plugins (:PackAdd user/repo)" })
+vim.api.nvim_create_user_command(
+  "PackAdd",
+  function(opts) vim.pack.add(opts.fargs) end,
+  { nargs = "+", desc = "Add plugins (:PackAdd user/repo)" }
+)
 
-vim.api.nvim_create_user_command("PackDel", function(opts)
-  vim.pack.del(opts.fargs)
-end, { nargs = "+", desc = "Delete plugins (:PackDel plugin1 plugin2)" })
+vim.api.nvim_create_user_command(
+  "PackDel",
+  function(opts) vim.pack.del(opts.fargs) end,
+  { nargs = "+", desc = "Delete plugins (:PackDel plugin1 plugin2)" }
+)
 
 -- Update specified (or all) plugins
 vim.api.nvim_create_user_command("PackUpdate", function(opts)
@@ -16,4 +20,3 @@ vim.api.nvim_create_user_command("PackUpdate", function(opts)
     vim.pack.update()
   end
 end, { nargs = "+", desc = "Update plugins (all if no arguments given)" })
-

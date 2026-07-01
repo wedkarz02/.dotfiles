@@ -17,4 +17,3 @@ Oil.setup({
     border = "rounded",
   },
 })
-

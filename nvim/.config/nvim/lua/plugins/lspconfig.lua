@@ -22,15 +22,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     vim.keymap.set("n", "grD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "[G]oto [D]eclaration" })
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "Goto Definition" })
-    vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { buffer = ev.buf, desc = "[F]ormat Local Buffer" })
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client and client:supports_method("textDocument/inlayHint", ev.buf) then
-      vim.keymap.set("n", "<leader>th", function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }))
-      end, { buffer = ev.buf, desc = "[T]oggle Inlay [H]ints" })
+      vim.keymap.set(
+        "n",
+        "<leader>th",
+        function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf })) end,
+        { buffer = ev.buf, desc = "[T]oggle Inlay [H]ints" }
+      )
     end
-  end
+  end,
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -44,15 +46,14 @@ local servers = {
     settings = {
       Lua = {
         diagnostics = {
-          globals = { "vim" }
-        }
-      }
-    }
-  }
+          globals = { "vim" },
+        },
+      },
+    },
+  },
 }
 
 for name, server in pairs(servers) do
   vim.lsp.config(name, server)
   vim.lsp.enable(name)
 end
-

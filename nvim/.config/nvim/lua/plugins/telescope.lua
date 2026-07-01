@@ -16,19 +16,19 @@ Telescope.setup({
       "%.npm/",
       "%.venv/",
       "venv/",
-    }
+    },
   },
   pickers = {
     find_files = {
       hidden = true,
       follow = true,
-    }
+    },
   },
   extensions = {
     ["ui-select"] = {
       require("telescope.themes").get_dropdown(),
-    }
-  }
+    },
+  },
 })
 
 pcall(Telescope.load_extension, "fzf")
@@ -43,10 +43,24 @@ vim.keymap.set({ "n", "v" }, "<leader>sw", TelescopeBuiltin.grep_string, { desc 
 vim.keymap.set("n", "<leader>sg", TelescopeBuiltin.live_grep, { desc = "[S]earch by [G]rep" })
 vim.keymap.set("n", "<leader>sd", TelescopeBuiltin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>sr", TelescopeBuiltin.resume, { desc = "[S]earch [R]esume" })
-vim.keymap.set("n", "<leader>s.", TelescopeBuiltin.oldfiles, { desc = "[S]earch Recent Files (\".\" for repeat)" })
+vim.keymap.set("n", "<leader>s.", TelescopeBuiltin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 vim.keymap.set("n", "<leader>sc", TelescopeBuiltin.commands, { desc = "[S]earch [C]ommands" })
 vim.keymap.set("n", "<leader><leader>", TelescopeBuiltin.buffers, { desc = "[ ] Find existing buffers" })
-vim.keymap.set("n", "<leader>/", TelescopeBuiltin.current_buffer_fuzzy_find, { desc = "[/] Fuzzily search in current buffer" })
-vim.keymap.set("n", "<leader>s/", function() TelescopeBuiltin.live_grep({ grep_open_files = true, prompt_title = "Live grep in open files" }) end, { desc = "[S]earch [/] in open files" })
-vim.keymap.set("n", "<leader>sn", function() TelescopeBuiltin.find_files({ cwd = vim.fn.stdpath("config"), follow = true }) end, { desc = "[S]earch [N]eovim files" })
-
+vim.keymap.set(
+  "n",
+  "<leader>/",
+  TelescopeBuiltin.current_buffer_fuzzy_find,
+  { desc = "[/] Fuzzily search in current buffer" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>s/",
+  function() TelescopeBuiltin.live_grep({ grep_open_files = true, prompt_title = "Live grep in open files" }) end,
+  { desc = "[S]earch [/] in open files" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>sn",
+  function() TelescopeBuiltin.find_files({ cwd = vim.fn.stdpath("config"), follow = true }) end,
+  { desc = "[S]earch [N]eovim files" }
+)

@@ -7,4 +7,3 @@ Catppuccin.setup({
 })
 
 vim.cmd.colorscheme("catppuccin-nvim")
-

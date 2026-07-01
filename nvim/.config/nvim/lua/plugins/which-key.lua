@@ -7,8 +7,6 @@ WhichKey.setup({
   spec = {
     { "<leader>s", group = "[S]earch" },
     { "<leader>t", group = "[T]oggle" },
-    { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
-    { "gr", group = "LSP Actions", mode = { "n" } }
-  }
+    { "gr", group = "LSP Actions", mode = { "n" } },
+  },
 })
-
