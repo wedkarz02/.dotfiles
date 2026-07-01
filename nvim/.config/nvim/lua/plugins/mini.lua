@@ -1,7 +1,4 @@
-vim.pack.add({
-  "https://github.com/nvim-mini/mini.nvim",
-  "https://github.com/rafamadriz/friendly-snippets",
-})
+vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
 
 local MiniNotify = require("mini.notify")
 MiniNotify.setup({
