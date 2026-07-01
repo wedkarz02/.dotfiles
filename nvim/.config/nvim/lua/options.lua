@@ -20,7 +20,7 @@ vim.opt.breakindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.inccommand = "split"
-vim.opt.completeopt = "menuone,noselect,fuzzy,nosort"
+vim.opt.completeopt = "menuone,noinsert,fuzzy,nosort"
 
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300

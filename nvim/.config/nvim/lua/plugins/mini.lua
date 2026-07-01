@@ -52,11 +52,3 @@ MiniCompletion.setup({
   }
 })
 
-local MiniSnippets = require("mini.snippets")
-MiniSnippets.setup({
-  snippets = {
-    MiniSnippets.gen_loader.from_lang() -- snippets from rafamadriz/friendly-snippets collection
-  }
-})
-MiniSnippets.start_lsp_server({ match = false })
-
