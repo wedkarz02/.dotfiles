@@ -19,8 +19,8 @@ For anyone else who isn't future me - also welcome! Feel free to roam around and
 - [Requirements](#requirements)
 - [Download the repository](#download-the-repository)
 - [Setup](#setup)
-    - [`setup.sh`](#setupsh)
-    - [Manual setup](#manual-setup)
+    - [Automated](#automated)
+    - [Manual](#manual)
 - [File tree](#file-tree)
 - [Notice](#notice)
 - [License](#license)
@@ -40,9 +40,9 @@ git clone https://codeberg.org/wedkarz02/.dotfiles.git $HOME/.dotfiles
 
 You have two options - install and configure everything manually or run the script to do it for you.
 
-### `setup.sh`
+### Automated
 
-> [!LLM DISCLOSURE]
+> [!NOTE]
 > Since I don't particularly enjoy working with bash I decided to do some LLM-assisted coding to get it over with quicker. Keep that in mind, eventhough I did review everything personally - no *AI going loose* shenanigans around here.
 
 Just run the script (it will prompt for confirmation and sudo privileges). Full usage print:
@@ -72,7 +72,7 @@ Examples:
   ./setup.sh --only omz starship    # Only setup Oh My Zsh and Starship
 ```
 
-### Manual setup
+### Manual
 
 Take a look at the [MANUAL_SETUP.md](https://codeberg.org/wedkarz02/.dotfiles/src/branch/main/MANUAL_SETUP.md) doc for detailed instructions.
 
