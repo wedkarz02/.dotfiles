@@ -7,7 +7,10 @@
 
 ## Overview
 
-Hello, future me! This README is supposed to guide you through a fresh environment setup when you inevitably forget how to do half of the stuff here. Please note that the current setup still requires manually installing / downloading a bunch of stuff. An `install-all` script is a WIP at the time of writing this but I might scrap the idea in favor of simplicity.
+Hello, future me! This README is supposed to guide you through a fresh environment setup when you inevitably forget how to do half of the stuff here. For your convenience - the `setup.sh` script will automate installing and setting everything up. If, for some reason, you don't feel comfortable running some random bash hackjob script - take a look at [MANUAL_SETUP.md](https://codeberg.org/wedkarz02/.dotfiles/src/branch/main/MANUAL_SETUP.md). It will guide you through a manual setup (which is almost exactly the same as what `setup.sh` is doing).
+
+> [!NOTE]
+> This dotfiles repository targets Fedora Linux specifically, as that is my distro of choice. Other distros will require some adjusting.
 
 For anyone else who isn't future me - also welcome! Feel free to roam around and grab anything that seems interesting to you.
 
@@ -15,183 +18,63 @@ For anyone else who isn't future me - also welcome! Feel free to roam around and
 
 - [Requirements](#requirements)
 - [Download the repository](#download-the-repository)
-- [Setup zsh](#setup-zsh)
-    - [Install ohmyzsh](#install-ohmyzsh)
-    - [Install starship](#install-starship)
-- [Setup tmux](#setup-tmux)
-    - [Install tpm](#install-tpm)
-    - [Theme](#theme)
-- [Remap CapsLock to ESC/CTRL](#remap-capslock-to-escctrl)
-- [Setup bat](#setup-bat)
-- [Setup fzf-git](#setup-fzf-git)
-- [Setup btop](#setup-btop)
-- [GNU Stow](#gnu-stow)
+- [Setup](#setup)
+    - [`setup.sh`](#setupsh)
+    - [Manual setup](#manual-setup)
 - [File tree](#file-tree)
 - [Notice](#notice)
 - [License](#license)
 
 ## Requirements
-
-Software to install before proceeding:
-
-| Package | Install Command |
-|---------|-----------------|
-| development-tools | `sudo dnf group install development-tools` |
-| gcc | `sudo dnf install gcc` |
-| rust-tools | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \| sh` |
-| nvm | `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh \| bash` |
-| just| `cargo install just` |
-| ghostty | `sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty` |
-| zsh | `sudo dnf install zsh` |
-| stow | `sudo dnf install stow` |
-| tmux | `sudo dnf install tmux` |
-| nvim | `sudo dnf install neovim` |
-| keyd | `sudo dnf copr enable alternateved/keyd && sudo dnf install keyd` |
-| fd | `sudo dnf install fd-find` |
-| rg | `sudo dnf install ripgrep` |
-| fzf | `sudo dnf install fzf` |
-| bat | `sudo dnf install bat` |
-| delta | `sudo dnf install git-delta` |
-| btop | `sudo dnf install btop` |
-| tokei | `sudo dnf install tokei` |
-| tldr | `cargo install tlrc --locked` |
-
-> [!IMPORTANT]
-> Some of these technically are not necessary but they *might* be referenced in different places in the configs.
-> If not installed - expect a bunch of errors, warnings and stuff exploding.
+- Git
+- Some common sense - backup previous configs!
 
 ## Download the repository
 
-Clone this repository to your desired location (I usually go with the home directory):
+Clone this repository to your home directory:
 ```sh
-git clone https://codeberg.org/wedkarz02/.dotfiles.git
+git clone https://codeberg.org/wedkarz02/.dotfiles.git $HOME/.dotfiles
 ```
 
-## Setup zsh
+## Setup
 
-Set the default shell:
-```sh
-chsh -s $(which zsh)
+You have two options - install and configure everything manually or run the script to do it for you.
+
+### `setup.sh`
+
+> [!LLM DISCLOSURE]
+> Since I don't particularly enjoy working with bash I decided to do some LLM-assisted coding to get it over with quicker. Keep that in mind, eventhough I did review everything personally - no *AI going loose* shenanigans around here.
+
+Just run the script (it will prompt for confirmation and sudo privileges). Full usage print:
 ```
-Follow [this link](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) if there are any issues.
+Usage: ./setup.sh [--force] [--only STEP...]
 
-### Install ohmyzsh
+Options:
+  --force         Skip the confirmation prompt
+  --only STEP...  Run only specific steps
 
-For very quick and easy zsh setup, install ohmyzsh:
-```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
+Available steps:
+  packages   - Install all packages (dnf, rust, nvm, etc.)
+  zsh        - Set ZSH as default shell
+  omz        - Install Oh My Zsh and plugins
+  starship   - Install Starship prompt
+  tmux       - Setup Tmux with TPM and Catppuccin theme
+  keyd       - Configure keyd key remapper
+  bat        - Install Catppuccin theme for bat
+  fzf-git    - Setup fzf-git.sh
+  btop       - Install Catppuccin theme for btop
+  stow       - Stow dotfiles
 
-and the following two plugins for syntax highlighting and autosuggestions:
-```sh
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-```
-```sh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-```
-
-Look through [this list](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins) to find more plugins bundled with *Oh My Zsh*.
-
-### Install starship
-
-Install the starship prompt:
-```sh
-curl -sS https://starship.rs/install.sh | sh
-```
-
-## Setup tmux
-
-> [!NOTE]
-> The `tmux` package doesn't include plugins so make sure to install them with `Prefix + I` and reload tmux with `Prefix + r` after installing TPM.
-
-### Install TPM
-
-```sh
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+Examples:
+  ./setup.sh                        # Run full setup
+  ./setup.sh --force                # Run full setup without confirmation
+  ./setup.sh --only tmux            # Only setup tmux
+  ./setup.sh --only omz starship    # Only setup Oh My Zsh and Starship
 ```
 
-### Theme
+### Manual setup
 
-Download Catppuccin theme for tmux:
-```sh
-git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
-```
-
-## Remap CapsLock to ESC/CTRL
-
-Copy this config to `/etc/keyd/default.conf` and enable keyd with `sudo systemctl enable keyd --now`:
-```
-[ids]
-
-*
-
-[main]
-
-# Maps capslock to escape when pressed and control when held.
-capslock = overload(control, esc)
-
-# Remaps the escape key to capslock
-esc = capslock
-```
-
-## Setup bat
-
-Create a `bat` config directory:
-```sh
-mkdir -p "$(bat --config-dir)/themes"
-```
-
-Download the Catppuccin theme to that directory:
-```sh
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-```
-
-Rebuild bat's cache:
-```sh
-bat cache --build
-```
-
-## Setup fzf-git
-
-Make sure that `~/.local/bin` exists:
-```sh
-mkdir -p ~/.local/bin
-```
-
-Download the `fzf-git.sh` script:
-```sh
-wget -P "$HOME/.local/bin" https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh
-```
-
-## Setup btop
-
-Download [latest release](https://github.com/catppuccin/btop/releases/download/1.0.0/themes.tar.gz) of Catppuccin for btop:
-```sh
-mkdir -p ~/.config/btop/themes
-wget -P "$HOME/.config/btop" https://github.com/catppuccin/btop/releases/download/1.0.0/themes.tar.gz
-tar xf themes.tar.gz
-rm themes.tar.gz
-```
-Set the theme in `btop` manually after that.
-
-## GNU Stow
-
-*GNU Stow* makes managing symlinks very easy.
-
-Use `stow` to make symlinks for a specific package you want to install, eg.:
-```sh
-stow zsh
-```
-
-Or install all of them:
-```sh
-stow */
-```
-
-If, for whatever reason, you need to 'unstow' do:
-```sh
-stow -D */
-```
+Take a look at the [MANUAL_SETUP.md](https://codeberg.org/wedkarz02/.dotfiles/src/branch/main/MANUAL_SETUP.md) doc for detailed instructions.
 
 ## File tree
 

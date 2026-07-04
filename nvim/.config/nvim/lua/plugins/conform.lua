@@ -10,6 +10,7 @@ Conform.setup({
   },
   formatters_by_ft = {
     lua = { "stylua" },
+    sh = { "shfmt" },
   },
 
   vim.keymap.set("n", "<leader>f", function() Conform.format({ async = true }) end, { desc = "[F]ormat Local Buffer" }),
