@@ -20,6 +20,8 @@ theme = Catppuccin Mocha
 
 maximize = true
 window-decoration = false
+mouse-hide-while-typing = true
+
 keybind = ctrl+enter=ignore
 
 font-feature = -calt
