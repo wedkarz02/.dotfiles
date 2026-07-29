@@ -64,3 +64,9 @@ vim.keymap.set(
   function() TelescopeBuiltin.find_files({ cwd = vim.fn.stdpath("config"), follow = true }) end,
   { desc = "[S]earch [N]eovim files" }
 )
+vim.keymap.set(
+  "n",
+  "<leader>sm",
+  function() TelescopeBuiltin.man_pages({ sections = { "ALL" } }) end,
+  { desc = "[S]earch [M]an Pages" }
+)
