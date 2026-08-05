@@ -32,7 +32,6 @@ DNF_PACKAGES=(
 STEPS=(
   "packages"
   "zsh"
-  "omz"
   "starship"
   "tmux"
   "keyd"
@@ -71,8 +70,7 @@ while [[ $# -gt 0 ]]; do
     echo ""
     echo "Available steps:"
     echo "  packages   - Install all packages (dnf, rust, nvm, etc.)"
-    echo "  zsh        - Set ZSH as default shell"
-    echo "  omz        - Install Oh My Zsh and plugins"
+    echo "  zsh        - Setup Zsh and install default plugins (zsh-autosuggestions, zsh-syntax-highlighting)"
     echo "  starship   - Install Starship prompt"
     echo "  tmux       - Setup Tmux with TPM and Catppuccin theme"
     echo "  keyd       - Configure keyd key remapper"
@@ -85,7 +83,7 @@ while [[ $# -gt 0 ]]; do
     echo "  $0                        # Run full setup"
     echo "  $0 --force                # Run full setup without confirmation"
     echo "  $0 --only tmux            # Only setup tmux"
-    echo "  $0 --only omz starship    # Only setup Oh My Zsh and Starship"
+    echo "  $0 --only zsh starship    # Only setup Zsh and Starship"
     exit 0
     ;;
   *)
@@ -157,31 +155,17 @@ install_packages() {
 }
 
 setup_zsh() {
-  log "Setting ZSH as default shell"
+  log "Setting up Zsh"
   sudo chsh -s "$(command -v zsh)" "$USER"
-}
 
-setup_omz() {
-  log "Setting up Oh My Zsh"
-  if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  else
-    warn "Oh My Zsh already installed, skipping"
-  fi
+  XDG_CONFIG_HOME="$HOME/.config"
+  ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+  ZPLUGINS="$ZDOTDIR/plugins"
 
-  ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
-
-  if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-  else
-    warn "zsh-autosuggestions already installed, skipping"
-  fi
-
-  if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-  else
-    warn "zsh-syntax-highlighting already installed, skipping"
-  fi
+  log "Installing default Zsh plugins (zsh-autosuggestions, zsh-syntax-highlighting)"
+  [ ! -d "$ZPLUGINS" ] && mkdir -p "$ZPLUGINS"
+  [ ! -d "$ZPLUGINS/zsh-autosuggestions" ] && git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZPLUGINS/zsh-autosuggestions"
+  [ ! -d "$ZPLUGINS/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZPLUGINS/zsh-syntax-highlighting"
 }
 
 setup_starship() {
@@ -274,7 +258,6 @@ main() {
     setup_zsh
   fi
 
-  should_run "omz" && setup_omz
   should_run "starship" && setup_starship
   should_run "tmux" && setup_tmux
   should_run "bat" && setup_bat
