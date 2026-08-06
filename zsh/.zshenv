@@ -13,6 +13,7 @@ export SAVEHIST=1000
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+export MANPAGER="nvim +Man!"
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
