@@ -1,13 +1,14 @@
 # NOTE: Plugins live in $ZPLUGINS (most likely ~/.config/zsh/plugins).
 #       Remember to clone plugin repos to $ZPLUGINS before sourcing '.zshrc'.
+#       zsh-completions doesn't need to be here - it's setup is in '.zshcompletions'.
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 for plugin in "${plugins[@]}"; do
   source "$ZPLUGINS/$plugin/$plugin.zsh"
-done
+done; unset -v plugin plugins
 
-autoload -Uz compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# Load zsh completions
+source "$ZDOTDIR/.zshcompletions"
 
 # Load zsh key-bindings
 source "$ZDOTDIR/.zshbindings"

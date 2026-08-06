@@ -70,7 +70,7 @@ while [[ $# -gt 0 ]]; do
     echo ""
     echo "Available steps:"
     echo "  packages   - Install all packages (dnf, rust, nvm, etc.)"
-    echo "  zsh        - Setup Zsh and install default plugins (zsh-autosuggestions, zsh-syntax-highlighting)"
+    echo "  zsh        - Setup Zsh and install plugins (zsh-autosuggestions, zsh-syntax-highlighting, zsh-completions)"
     echo "  starship   - Install Starship prompt"
     echo "  tmux       - Setup Tmux with TPM and Catppuccin theme"
     echo "  keyd       - Configure keyd key remapper"
@@ -162,10 +162,11 @@ setup_zsh() {
   ZDOTDIR="$XDG_CONFIG_HOME/zsh"
   ZPLUGINS="$ZDOTDIR/plugins"
 
-  log "Installing default Zsh plugins (zsh-autosuggestions, zsh-syntax-highlighting)"
+  log "Installing default Zsh plugins (zsh-autosuggestions, zsh-syntax-highlighting, zsh-completions)"
   [ ! -d "$ZPLUGINS" ] && mkdir -p "$ZPLUGINS"
   [ ! -d "$ZPLUGINS/zsh-autosuggestions" ] && git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZPLUGINS/zsh-autosuggestions"
   [ ! -d "$ZPLUGINS/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZPLUGINS/zsh-syntax-highlighting"
+  [ ! -d "$ZPLUGINS/zsh-completions" ] && git clone https://github.com/zsh-users/zsh-completions.git "$ZPLUGINS/zsh-completions"
 }
 
 setup_starship() {

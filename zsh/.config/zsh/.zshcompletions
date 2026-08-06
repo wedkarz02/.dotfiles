@@ -1,0 +1,25 @@
+fpath=("$ZPLUGINS/zsh-completions/src" $fpath)
+
+zmodload zsh/complist
+
+autoload -U compinit; compinit -d "$ZCACHEDIR/.zcompdump"
+_comp_options+=(globdots)
+
+setopt MENU_COMPLETE    # Highlight first element in completion menu
+setopt AUTO_LIST        # List choices on ambiguous completions
+setopt COMPLETE_IN_WORD # Complete from both ends of a word
+
+# zstyle pattern:
+# :completion:<function>:<completer>:<command>:<argument>:<tag>
+
+zstyle ":completion:*" completer _extensions _complete _approximate
+
+# NOTE: I'm not sure this does anything to be honest...
+#       (cache is not populating after some testing)
+zstyle ":completion:*" use-cache on
+zstyle ":completion:*" cache-path "$ZCACHEDIR/.zcompcache"
+
+zstyle ":completion:*" menu select
+zstyle ":completion:*:*:*:*:default" list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
