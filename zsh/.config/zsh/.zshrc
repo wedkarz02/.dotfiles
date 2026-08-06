@@ -6,6 +6,9 @@ for plugin in "${plugins[@]}"; do
   source "$ZPLUGINS/$plugin/$plugin.zsh"
 done
 
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 # Load zsh key-bindings
 source "$ZDOTDIR/.zshbindings"
 
