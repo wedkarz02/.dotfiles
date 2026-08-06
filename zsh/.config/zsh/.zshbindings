@@ -1,0 +1,17 @@
+bindkey "^[[1;5C" forward-word     # Ctrl+Right
+bindkey "^[[1;5D" backward-word    # Ctrl+Left
+bindkey "^[[1~" beginning-of-line  # Home
+bindkey "^[[4~" end-of-line        # End
+bindkey "^[[3~" delete-char        # Delete
+
+bindkey "^F" autosuggest-accept    # Ctrl+F: accept autosuggestion
+
+bindkey "^U" backward-kill-line    # Ctrl+U: delete from cursor to start
+bindkey "^W" backward-kill-word    # Ctrl+W: delete word backward
+bindkey "^[d" kill-word            # Alt+D: delete word forward
+
+bindkey "^_" undo                  # Ctrl+/
+bindkey "^[/" redo                 # Alt+/
+
+bindkey -s "^[[3;2~" "~"           # Shift+Delete: insert ~ character
+

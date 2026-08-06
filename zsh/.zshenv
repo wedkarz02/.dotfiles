@@ -9,9 +9,9 @@ export SAVEHIST=1000
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-export NVM_DIR="$XDG_CONFIG_HOME/nvm"
-
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 
 # Setup fzf keybindings
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"

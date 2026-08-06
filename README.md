@@ -33,7 +33,7 @@ For anyone else who isn't future me - also welcome! Feel free to roam around and
 
 Clone this repository to your home directory:
 ```sh
-git clone https://codeberg.org/wedkarz02/.dotfiles.git $HOME/.dotfiles
+git clone https://codeberg.org/wedkarz02/.dotfiles.git "$HOME/.dotfiles"
 ```
 
 ## Setup
@@ -55,8 +55,7 @@ Options:
 
 Available steps:
   packages   - Install all packages (dnf, rust, nvm, etc.)
-  zsh        - Set ZSH as default shell
-  omz        - Install Oh My Zsh and plugins
+  zsh        - Setup Zsh and install default plugins (zsh-autosuggestions, zsh-syntax-highlighting)
   starship   - Install Starship prompt
   tmux       - Setup Tmux with TPM and Catppuccin theme
   keyd       - Configure keyd key remapper
@@ -69,7 +68,7 @@ Examples:
   ./setup.sh                        # Run full setup
   ./setup.sh --force                # Run full setup without confirmation
   ./setup.sh --only tmux            # Only setup tmux
-  ./setup.sh --only omz starship    # Only setup Oh My Zsh and Starship
+  ./setup.sh --only zsh starship    # Only setup Zsh and Starship
 ```
 
 ### Manual
@@ -88,7 +87,6 @@ Take a look at the [MANUAL_SETUP.md](https://codeberg.org/wedkarz02/.dotfiles/sr
 │   └── .config
 │       └── ghostty
 ├── git
-│   └── .gitconfig
 ├── nvim
 │   └── .config
 │       └── nvim
@@ -102,8 +100,9 @@ Take a look at the [MANUAL_SETUP.md](https://codeberg.org/wedkarz02/.dotfiles/sr
 │   └── .config
 │       └── tmux
 └── zsh
-    ├── .zsh_aliases
-    └── .zshrc
+    ├── .config
+    │   └── zsh
+    └── .zshenv
 ```
 
 ## Notice
@@ -113,6 +112,7 @@ Thanks to:
 - [@dam9000](https://github.com/dam9000) - for an inspiration on modularizing kickstart.
 - [@novaspirit](https://github.com/novaspirit) - for an easy-to-follow zsh setup guide.
 - [@Sin-cy](https://github.com/Sin-cy) - for an inspiration on Neovim0.12+ config.
+- [@Phantas0s](https://thevaluable.dev/zsh-install-configure-mouseless/) - for nice article on zsh setup without omz.
 
 ## License
 

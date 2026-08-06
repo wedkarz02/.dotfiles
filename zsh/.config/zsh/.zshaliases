@@ -2,5 +2,7 @@
 #   nvim-lazy - Pre-nvim-0.12 with lazy.nvim as plugin manager.
 alias nvim-lazy="NVIM_APPNAME=nvim-lazy nvim"
 
+alias la="ls -lAh"
+alias open="xdg-open"
 alias loc="tokei --hidden"
 

@@ -6,15 +6,17 @@ for plugin in "${plugins[@]}"; do
   source "$ZPLUGINS/$plugin/$plugin.zsh"
 done
 
-# Load custom zsh aliases from ~/.zshaliases
+# Load zsh key-bindings
+source "$ZDOTDIR/.zshbindings"
+
+# Load zsh aliases
 source "$ZDOTDIR/.zshaliases"
 
 # Setup cargo
 source "$HOME/.cargo/env"
 
 # Setup nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Setup fzf keybindings and fuzzy completion
 source <(fzf --zsh)

@@ -5,7 +5,7 @@
 - [Requirements](#requirements)
 - [Download the repository](#download-the-repository)
 - [Setup zsh](#setup-zsh)
-    - [Install ohmyzsh](#install-ohmyzsh)
+    - [Install plugins](#install-plugins)
     - [Install starship](#install-starship)
 - [Setup tmux](#setup-tmux)
     - [Install tpm](#install-tpm)
@@ -48,7 +48,7 @@ Software to install before proceeding:
 
 Clone this repository to your home directory:
 ```sh
-git clone https://codeberg.org/wedkarz02/.dotfiles.git $HOME/.dotfiles
+git clone https://codeberg.org/wedkarz02/.dotfiles.git "$HOME/.dotfiles"
 ```
 
 ## Setup zsh
@@ -59,22 +59,17 @@ chsh -s $(which zsh)
 ```
 Follow [this link](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) if there are any issues.
 
-### Install ohmyzsh
+### Install plugins
 
-For very quick and easy zsh setup, install ohmyzsh:
+Make sure that `"$ZPLUGINS"` directory exists:
 ```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mkdir -p "$HOME/.config/zsh/plugins"
 ```
-
-and the following two plugins for syntax highlighting and autosuggestions:
+and download the plugins:
 ```sh
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.config/zsh/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.config/zsh/plugins/zsh-syntax-highlighting"
 ```
-```sh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-```
-
-Look through [this list](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins) to find more plugins bundled with *Oh My Zsh*.
 
 ### Install starship
 
@@ -91,14 +86,14 @@ curl -sS https://starship.rs/install.sh | sh
 ### Install TPM
 
 ```sh
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
 ```
 
 ### Theme
 
 Download Catppuccin theme for tmux:
 ```sh
-git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+git clone -b v2.1.3 https://github.com/catppuccin/tmux.git "$HOME/.config/tmux/plugins/catppuccin/tmux"
 ```
 
 ## Remap CapsLock to ESC/CTRL
@@ -139,7 +134,7 @@ bat cache --build
 
 Make sure that `~/.local/bin` exists:
 ```sh
-mkdir -p ~/.local/bin
+mkdir -p "$HOME/.local/bin"
 ```
 
 Download the `fzf-git.sh` script:
@@ -151,7 +146,7 @@ wget -P "$HOME/.local/bin" https://raw.githubusercontent.com/junegunn/fzf-git.sh
 
 Download [latest release](https://github.com/catppuccin/btop/releases/download/1.0.0/themes.tar.gz) of Catppuccin for btop:
 ```sh
-mkdir -p ~/.config/btop/themes
+mkdir -p "$HOME/.config/btop/themes"
 wget -P "$HOME/.config/btop" https://github.com/catppuccin/btop/releases/download/1.0.0/themes.tar.gz
 tar xf themes.tar.gz
 rm themes.tar.gz
