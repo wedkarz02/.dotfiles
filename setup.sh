@@ -159,8 +159,11 @@ setup_zsh() {
   sudo chsh -s "$(command -v zsh)" "$USER"
 
   XDG_CONFIG_HOME="$HOME/.config"
+  XDG_CACHE_HOME="$HOME/.cache"
   ZDOTDIR="$XDG_CONFIG_HOME/zsh"
   ZPLUGINS="$ZDOTDIR/plugins"
+
+  [ ! -d "$XDG_CACHE_HOME/zsh" ] && mkdir -p "$XDG_CACHE_HOME/zsh"
 
   log "Installing default Zsh plugins (zsh-autosuggestions, zsh-syntax-highlighting, zsh-completions)"
   [ ! -d "$ZPLUGINS" ] && mkdir -p "$ZPLUGINS"

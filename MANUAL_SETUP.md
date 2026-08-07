@@ -61,14 +61,16 @@ Follow [this link](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) if th
 
 ### Install plugins
 
-Make sure that `"$ZPLUGINS"` directory exists:
+Make sure that `"$ZPLUGINS"` and `$ZCACHEDIR` directories exists:
 ```sh
 mkdir -p "$HOME/.config/zsh/plugins"
+mkdir -p "$HOME/.cache/zsh"
 ```
 and download the plugins:
 ```sh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.config/zsh/plugins/zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.config/zsh/plugins/zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-completions.git "$HOME/.config/zsh/plugins/zsh-completions"
 ```
 
 ### Install starship

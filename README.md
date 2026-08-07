@@ -55,7 +55,7 @@ Options:
 
 Available steps:
   packages   - Install all packages (dnf, rust, nvm, etc.)
-  zsh        - Setup Zsh and install default plugins (zsh-autosuggestions, zsh-syntax-highlighting)
+  zsh        - Setup Zsh and install plugins (zsh-autosuggestions, zsh-syntax-highlighting, zsh-completions)
   starship   - Install Starship prompt
   tmux       - Setup Tmux with TPM and Catppuccin theme
   keyd       - Configure keyd key remapper
