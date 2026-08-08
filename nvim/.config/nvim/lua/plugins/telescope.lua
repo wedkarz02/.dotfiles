@@ -60,6 +60,12 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
+  "<leader>sb",
+  function() TelescopeBuiltin.current_buffer_fuzzy_find({ skip_empty_lines = true, results_ts_highlight = true }) end,
+  { desc = "[S]earch Current [B]uffer" }
+)
+vim.keymap.set(
+  "n",
   "<leader>sn",
   function() TelescopeBuiltin.find_files({ cwd = vim.fn.stdpath("config"), follow = true }) end,
   { desc = "[S]earch [N]eovim files" }
